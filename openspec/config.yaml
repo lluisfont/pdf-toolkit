@@ -1,0 +1,27 @@
+schema: spec-driven
+
+# Contexto del proyecto: solo restricciones que no se deducen leyendo el código.
+context: |
+  Escribe todos los artefactos (proposal, design, tasks, specs) en español.
+  En las specs, el texto normativo de cada requisito usa «DEBE (SHALL)» o «NO DEBE (MUST NOT)»:
+  el validador estricto de OpenSpec exige las palabras inglesas SHALL/MUST. Los escenarios
+  mantienen las marcas **WHEN** / **THEN** / **AND** con el contenido en español.
+  El usuario trabaja en Windows 11 con el escalado de pantalla al 125 %; Python 3.14.
+  La única dependencia de ejecución es pypdf; no añadir otras sin acordarlo (PyMuPDF solo
+  sirve para generar PDF de prueba). La interfaz gráfica es Tkinter de la biblioteca estándar.
+  Cada funcionalidad tiene su lógica en un módulo sin interfaz (pdf_*.py) con su propia
+  línea de comandos, y una pestaña en la ventana pdf_toolkit.py que reutiliza esa lógica.
+  Los textos que ve el usuario (ventana, mensajes, ayuda de la línea de comandos) van en español.
+
+rules:
+  design:
+    - Indica cómo se verá la funcionalidad en la línea de comandos y en la pestaña de la ventana
+  tasks:
+    - Incluye siempre una tarea para actualizar README.md
+    - Incluye pruebas con PDF generados en una carpeta temporal, nunca dentro del repositorio
+
+operations:
+  apply:
+    guidance:
+      - La lógica no debe escribir en la consola directamente: recibe una función informar (la ventana se ejecuta con pythonw, sin consola)
+      - Comprueba la ventana con DPI real (escalado 125 %) y captura de pantalla cuando cambie la interfaz

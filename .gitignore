@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Resultados generados al usar la herramienta
+fusionado.pdf
+*_dividido/
+
+# Configuración personal de Claude Code (la de OpenSpec en .claude/ sí se versiona)
+.claude/settings.local.json
+
+# Sistema y editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
