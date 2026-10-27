@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import sys
 import tkinter as tk
+from pathlib import Path
 from tkinter import ttk
 
 from gui_dividir import DividirFrame
@@ -26,6 +27,9 @@ class App(tk.Tk):
     def __init__(self) -> None:
         super().__init__()
         self.title("PDF Toolkit")
+        icono = Path(__file__).parent / "assets" / "pdf_toolkit.ico"
+        if sys.platform == "win32" and icono.exists():
+            self.iconbitmap(default=str(icono))
         escala = self.winfo_fpixels("1i") / 96  # 1.0 al 100 %, 1.5 al 150 %...
         self.geometry(f"{int(920 * escala)}x{int(580 * escala)}")
         self.minsize(int(760 * escala), int(460 * escala))

@@ -10,7 +10,17 @@ pip install -r requirements.txt
 pythonw pdf_toolkit.py
 ```
 
-(`pythonw` no abre consola; `python` también funciona.) Una pestaña por herramienta:
+(`pythonw` no abre consola; `python` también funciona.)
+
+**Acceso directo** (Windows): para abrirla con doble clic desde el escritorio o el menú Inicio, sin consola ni terminal, ejecuta una vez:
+
+```bash
+python crear_acceso_directo.py
+```
+
+Crea «PDF Toolkit» (con su icono) en el escritorio y en el menú Inicio; desde ahí se puede anclar a la barra de tareas. Usa el Python con el que lo ejecutes y el código de esta carpeta, así que siempre abre la versión actual. Vuelve a ejecutarlo si mueves la carpeta o cambias de Python.
+
+Una pestaña por herramienta:
 
 ### Fusionar
 

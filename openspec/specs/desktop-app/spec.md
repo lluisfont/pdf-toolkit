@@ -16,6 +16,25 @@ La aplicación DEBE (SHALL) mostrar una sola ventana con una pestaña por herram
 - **WHEN** la aplicación se ejecuta con `pythonw`
 - **THEN** todas las funciones trabajan igual, porque ninguna escribe en la consola
 
+### Requirement: Acceso directo sin consola
+En Windows, el proyecto DEBE (SHALL) ofrecer `crear_acceso_directo.py`, que crea el acceso directo «PDF Toolkit» en el escritorio y en el menú Inicio para abrir la ventana con doble clic, sin consola y con el icono de la aplicación.
+
+#### Scenario: Crear el acceso directo
+- **WHEN** el usuario ejecuta `python crear_acceso_directo.py` con un Python que tiene pypdf y tkinter
+- **THEN** se crea `PDF Toolkit.lnk` en el escritorio y en el menú Inicio, apuntando al `pythonw.exe` de ese Python y a `pdf_toolkit.py` de la carpeta del proyecto, con el icono `assets/pdf_toolkit.ico`
+
+#### Scenario: Abrir desde el acceso directo
+- **WHEN** el usuario hace doble clic en el acceso directo
+- **THEN** se abre la ventana PDF Toolkit sin ninguna ventana de consola, con el icono de la aplicación en la barra de título y en la barra de tareas
+
+#### Scenario: Python sin pypdf
+- **WHEN** el script se ejecuta con un Python que no tiene pypdf o tkinter
+- **THEN** termina con un error que indica cómo instalar las dependencias y no crea ningún acceso directo
+
+#### Scenario: Volver a crearlo
+- **WHEN** el usuario mueve la carpeta del proyecto y vuelve a ejecutar el script
+- **THEN** los accesos directos existentes se sustituyen por otros que apuntan a la nueva ubicación
+
 ### Requirement: Nitidez con escalado de pantalla
 En Windows, la aplicación DEBE (SHALL) declararse compatible con el escalado de pantalla (DPI) y ajustar el tamaño inicial de la ventana a ese escalado.
 
